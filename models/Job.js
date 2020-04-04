@@ -2,25 +2,44 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let JobSchema = new Schema({
+    drive: {
+        type: String,
+        required: true,
+        unique: true
+    },
     profile: {
-        type: String
+        type: String,
+        required: true
     },
     domain: {
-        type: String
+        type: String,
+        required: true
     },
     role: {
-        type: String
+        type: String,
+        required: true
     },
     location: {
-        type: String
+        type: String,
+        required: true
     },
     description: {
+        type: String,
+        required: true
+    },
+    targetBatchYear: {
+        type: [String]
+    },
+    targetCourses: {
+        type: [String]
+    },
+    visitDate: {
         type: String
     },
-    stipend: {
-        type: Number
-    },
     compensationOffered: {
+        stipend: {
+            type: Number
+        },
         totalCTC: {
             type: String
         },
@@ -40,50 +59,44 @@ let JobSchema = new Schema({
         }
     },
     eligibilityCriteria: {
-        targetBatchYear: {
-            type: String
-        },
-        targetCourses: {
-            type: [String]
-        },
         cutoffPercentage: {
             type: String
         },
         activeBacklogs: {
-            type: Number
+            type: String
         },
         deadBacklogs: {
-            type: Number
+            type: String
         }
     },
     selectionProcedure: {
-        prefferedVisitDateOrWeek: {
+        writtenTest: {
             type: String
         },
-        hasWrittenTest: {
-            type: Boolean
+        onlineTest: {
+            type: String
         },
-        hasOnlineTest: {
-            type: Boolean
+        groupDiscussion: {
+            type: String
         },
-        hasGD: {
-            type: Boolean
+        technicalRound: {
+            type: String
         },
-        hasTechnicalRound: {
-            type: Boolean
-        },
-        hasHRRound: {
-            type: Boolean
+        hrRound: {
+            type: String
         }
     },
     otherInfoForStudents: {
-        type: String
+        type: String,
+        required: true
     },
     lastDateToRegister: {
-        type: Date
+        type: Date,
+        required: true
     },
     dateOfJobPosting: {
-        type: Date
+        type: Date,
+        required: true
     }
 });
 
